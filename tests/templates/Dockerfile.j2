@@ -1,0 +1,11 @@
+FROM amazonlinux:2.0.20190115
+
+RUN \
+  # Install ansible
+  amazon-linux-extras install ansible2={{ test_ansible_version }} -y && \
+  mkdir -p /etc/modprobe.d
+
+ADD . /tmp
+
+
+WORKDIR /tmp

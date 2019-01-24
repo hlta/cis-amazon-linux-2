@@ -1,0 +1,10 @@
+# Standards: 0.11
+---
+
+cis_target_os_distribution: "Amazon"
+cis_target_os_versions: 
+  - "(Karoo)"
+
+cis_modprobe_conf_filename: "/etc/modprobe.d/CIS.conf"
+
+full_upgrade: True
