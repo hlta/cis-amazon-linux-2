@@ -4,8 +4,8 @@
 # 1.1.19 - Disable Automounting
 
 - name: 1.1.19 - Disable autofs
-    debug: msg="*** autofs is not available on Amazon Linux 2."
-    tags:
+  debug: msg="*** autofs is not available on Amazon Linux 2."
+  tags:
     - level-1
     - "1.1.19"
     - scored
