@@ -4,14 +4,8 @@
 # 1.1.19 - Disable Automounting
 
 - name: 1.1.19 - Disable autofs
-  service:
-    name: autofs
-    enabled: false
-    state: stopped
-  ignore_errors: true
-  register: autofs_result
-  failed_when: "autofs_result.failed and 'no service or tool found for: autofs' not in autofs_result.msg"
-  tags:
+    debug: msg="*** autofs is not available on Amazon Linux 2."
+    tags:
     - level-1
     - "1.1.19"
     - scored
