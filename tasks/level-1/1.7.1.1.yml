@@ -1,0 +1,13 @@
+# Standards: 0.11
+---
+
+# 1.7.1.1 Ensure message of the day is configured properly
+
+- name: 1.7.1.1 - Ensure message of the day is configured properly
+  copy:
+    content: "{{ cis_motd_banner }}"
+    dest: "/etc/motd"
+  tags:
+    - level-1
+    - 1.7.1.1
+    - scored
