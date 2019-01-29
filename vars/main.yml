@@ -9,4 +9,5 @@ cis_modprobe_conf_filename: "/etc/modprobe.d/CIS.conf"
 cis_rescue_service_filename: "/usr/lib/systemd/system/rescue.service"
 cis_emergency_service_filename: "/usr/lib/systemd/system/emergency.service"
 cis_grub_bootloader_filename: "/boot/grub2/grub.cfg"
+cis_security_limits_filename: "/etc/security/limits.conf"
 full_upgrade: True
