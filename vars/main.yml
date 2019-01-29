@@ -6,5 +6,6 @@ cis_target_os_versions:
   - "(Karoo)"
 
 cis_modprobe_conf_filename: "/etc/modprobe.d/CIS.conf"
-
+cis_rescue_service_filename: "/usr/lib/systemd/system/rescue.service"
+cis_emergency_service_filename: "/usr/lib/systemd/system/emergency.service"
 full_upgrade: True
