@@ -33,12 +33,8 @@
 
     - name: Test playbook within docker container
       docker_container:
-        command: "ansible-playbook -i localhost, playbook.yml"
+        command: "ansible-playbook -i localhost, --e \"cis_level_1_exclusions=['1.5.1','1.5.2']\" playbook.yml"
         detach: false
-        sysctls:
-          net.core.somaxconn: 2048
-          kernel.randomize_va_space: 2
-          fs.suid_dumpable: 0
         image: "{{ docker_image_name }}"
         name: "{{ docker_container_name }}"
         privileged: yes
