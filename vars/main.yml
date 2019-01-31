@@ -12,4 +12,5 @@ cis_grub_bootloader_filename: "/boot/grub2/grub.cfg"
 cis_security_limits_filename: "/etc/security/limits.conf"
 cis_chrony_configure_filename: "/etc/chrony.conf"
 cis_chrony_server: "169.254.169.123"
+cis_postfix_configure_filename: "/etc/postfix/main.cf"
 full_upgrade: True

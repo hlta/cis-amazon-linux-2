@@ -1,15 +1,15 @@
 # Standards: 0.11
 ---
 
-# 1.1.19 - Disable Automounting
+# 2.1.4 Ensure CUPS is not enabled
 
-- name: 1.1.19 - Disable autofs
+- name: 2.1.4 - Ensure CUPS is not enabled
   systemd:
-    name: "autofs"
+    name: "cups"
     enabled: no
     state: stopped
   ignore_errors: True
   tags:
     - level-1
-    - "1.1.19"
+    - "2.1.4"
     - scored
