@@ -23,7 +23,7 @@
 
 - name: 2.1.15 - Ensure chrony is configure
   lineinfile:
-    dest: "{{ cis_modprobe_conf_filename }}"
+    dest: "{{ cis_postfix_configure_filename }}"
     regexp: "^inet_interfaces\\s+"
     line: "inet_interfaces = loopback-only"
   when: postfix_configure_2_1_15.stat.exists is defined or postfix_configure_2_1_15.stat.exists
