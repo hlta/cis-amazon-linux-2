@@ -10,4 +10,6 @@ cis_rescue_service_filename: "/usr/lib/systemd/system/rescue.service"
 cis_emergency_service_filename: "/usr/lib/systemd/system/emergency.service"
 cis_grub_bootloader_filename: "/boot/grub2/grub.cfg"
 cis_security_limits_filename: "/etc/security/limits.conf"
+cis_chrony_configure_filename: "/etc/chrony.conf"
+cis_chrony_server: "169.254.169.123"
 full_upgrade: True

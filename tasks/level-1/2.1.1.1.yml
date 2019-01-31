@@ -1,0 +1,22 @@
+# Standards: 0.11
+---
+
+# 2.1.1.1 Ensuretime synchronization is in use 
+
+- name: 2.1.1.1 - Ensure chrony is installed
+  yum:
+    name: chrony
+    state: present
+  tags:
+    - level-1
+    - section-2
+    - "2.1.1.1"
+
+- name: 2.1.1.1 - Ensure ntp is absent
+  yum:
+    name: ntp
+    state: absent
+  tags:
+    - level-1
+    - section-2
+    - "2.1.1.1"
