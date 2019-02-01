@@ -1,0 +1,57 @@
+# Standards: 0.11
+---
+
+# 3.1.1 Ensure IP forwarding is disabled
+
+- name: 3.1.1 - Check if sysctl configure file exist
+  stat:
+    path: "{{ cis_sysctl_configure_filename }}"
+  register: sysctl_configure_3_1_1
+  tags:
+    - level-1
+    - "3.1.1"
+    - scored
+
+- name: 3.1.1- Ensure net.ipv4.ip_forward and net.ipv6.conf.all.forwarding is set to 0
+  copy:
+    dest: "{{ cis_sysctl_configure_filename }}"
+    content: "net.ipv4.ip_forward = 0\nnet.ipv6.conf.all.forwarding = 0\n"
+  when: sysctl_configure_3_1_1.stat.exists is not defined or not sysctl_configure_3_1_1.stat.exists
+  tags:
+    - level-1
+    - "3.1.1"
+    - scored
+
+- name: 3.1.1 - Ensure net.ipv4.ip_forward is set to 0
+  lineinfile:
+    dest: "{{ cis_postfix_configure_filename }}"
+    regexp: "^net.ipv4.ip_forward\\s+"
+    line: "net.ipv4.ip_forward = 0"
+  when: sysctl_configure_3_1_1.stat.exists is defined or sysctl_configure_3_1_1.stat.exists
+  tags:
+    - level-1
+    - "3.1.1"
+    - scored
+
+- name: 3.1.1 - Ensure net.ipv6.conf.all.forwarding is set to 0
+  lineinfile:
+    dest: "{{ cis_postfix_configure_filename }}"
+    regexp: "^net.ipv6.conf.all.forwarding\\s+"
+    line: "net.ipv6.conf.all.forwarding = 0"
+  when: sysctl_configure_3_1_1.stat.exists is defined or sysctl_configure_3_1_1.stat.exists
+  tags:
+    - level-1
+    - "3.1.1"
+    - scored
+- name: 3.1.1 - Ensure IP forwarding is disabled in active kernel parameters
+  command: "{{ item }}"
+  with_items:
+    - "sysctl -w net.ipv4.ip_forward=0"
+    - "sysctl -w net.ipv6.conf.all.forwarding=0"
+    - "sysctl -w net.ipv4.route.flush=1"
+    - "sysctl -w net.ipv6.route.flush=1"
+  tags:
+    - level-1
+    - section-3
+    - "3.1.1"
+    - scored
