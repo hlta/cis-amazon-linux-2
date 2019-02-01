@@ -35,7 +35,7 @@
 - name: 2.1.15 Ensure mail transfer agent is configured for local-only mode
   systemd:
     name: "snmpd"
-    enabled: no
+    enabled: yes
     state: restarted
   ignore_errors: True
   tags:
