@@ -13,4 +13,5 @@ cis_security_limits_filename: "/etc/security/limits.conf"
 cis_chrony_configure_filename: "/etc/chrony.conf"
 cis_chrony_server: "169.254.169.123"
 cis_postfix_configure_filename: "/etc/postfix/main.cf"
+cis_sysctl_configure_filename: "/etc/sysctl.conf"
 full_upgrade: True
