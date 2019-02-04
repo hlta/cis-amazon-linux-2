@@ -15,9 +15,9 @@
     - scored
 
 - name: 4.2.1.1 - Ensure rsyslog Service is enabled
-  service:
+  systemd:
     name: "rsyslog"
-    enabled: true
+    enabled: yes
     state: started
   when:
     - cis_enable_rsyslog

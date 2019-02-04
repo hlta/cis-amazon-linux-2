@@ -14,7 +14,7 @@
 
 - name: 2.1.1.3 - Ensure chrony is configure
   copy:
-    dest: "{{ cis_ntp_filename }}"
+    dest: "{{ cis_chrony_configure_filename }}"
     content: "server {{ cis_chrony_server }} prefer iburst\n"
   when: chrony_configure_2_1_1_3.stat.exists is not defined or not chrony_configure_2_1_1_3.stat.exists
   tags:
