@@ -183,5 +183,5 @@
   when: "'3.5.2.4' not in cis_level_1_exclusions"
 - import_tasks: "level-1/3.5.3.yml"
   when: "'3.5.3' not in cis_level_1_exclusions"
-- import_tasks: "level-1/3.4.1.1.yml"
-  when: "'3.4.1.1' not in cis_level_1_exclusions"
+- import_tasks: "level-1/4.2.1.1.yml"
+  when: "'4.2.1.1' not in cis_level_1_exclusions"
