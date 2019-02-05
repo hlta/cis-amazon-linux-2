@@ -39,5 +39,7 @@ cis_remote_login_warning_banner:  "Authorized uses only. All activity may be mon
 # You should only enable either rsyslog or syslog-ng, but not both.
 cis_enable_rsyslog: true # Set to true if rsyslog should be enabled/configured.
 cis_enable_syslog_ng: false # Set to true if syslog_ng should be enabled/configured.
+# 4.2.1.3
+cis_enable_rsyslog_remote: false
 
 full_upgrade: True
