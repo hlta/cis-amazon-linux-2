@@ -14,7 +14,7 @@
     - scored
 
 - name: 5.2.13 - Ensure only strong ciphers are used
-  llineinfile:
+  lineinfile:
     regexp: "^Ciphers\\s+"
     line: "Ciphers {{ cis_sshd_ciphers }}"
     dest: "/etc/ssh/sshd_config"
