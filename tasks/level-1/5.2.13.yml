@@ -1,0 +1,28 @@
+# Standards: 0.11
+---
+
+# 5.2.13 Ensure only strong ciphers are used 
+
+- name: 5.2.13 - Check if /etc/ssh/sshd_config exists
+  stat:
+    path: /etc/ssh/sshd_config
+  register: sshd_config_5_2_13
+  tags:
+    - level-1
+    - section-5
+    - "5.2.13"
+    - scored
+
+- name: 5.2.13 - Ensure only strong ciphers are used
+  llineinfile:
+    regexp: "^Ciphers\\s+"
+    line: "Ciphers {{ cis_sshd_ciphers }}"
+    dest: "/etc/ssh/sshd_config"
+  when: sshd_config_5_2_13.stat.exists
+  notify:
+    - Restart sshd
+  tags:
+    - level-1
+    - section-5
+    - "5.2.13"
+    - scored

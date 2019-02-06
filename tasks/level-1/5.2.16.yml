@@ -1,0 +1,42 @@
+# Standards: 0.11
+---
+
+# 5.2.16 Ensure SSH Idle Timeout Interval is configured  
+
+- name: 5.2.16 - Check if /etc/ssh/sshd_config exists
+  stat:
+    path: /etc/ssh/sshd_config
+  register: sshd_config_5_2_16
+  tags:
+    - level-1
+    - section-5
+    - "5.2.16"
+    - scored
+
+- name: 5.2.16 - Ensure SSH Client Alive Interval is configured
+  lineinfile:
+    regexp: "^ClientAliveInterval\\s+"
+    line: "ClientAliveInterval {{ cis_sshd_client_alive_interval }}"
+    dest: "/etc/ssh/sshd_config"
+  when: sshd_config_5_2_16.stat.exists
+  notify:
+    - Restart sshd
+  tags:
+    - level-1
+    - section-5
+    - "5.2.16"
+    - scored
+
+- name: 5.2.16 - Ensure SSH Client Alive Count Max is configured
+  lineinfile:
+    regexp: "^ClientAliveCountMax\\s+"
+    line: "ClientAliveCountMax {{ cis_sshd_client_alive_count_max }}"
+    dest: "/etc/ssh/sshd_config"
+  when: sshd_config_5_2_16.stat.exists
+  notify:
+    - Restart sshd
+  tags:
+    - level-1
+    - section-5
+    - "5.2.16"
+    - scored

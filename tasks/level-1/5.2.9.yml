@@ -1,0 +1,28 @@
+# Standards: 0.11
+---
+
+# 5.2.9 Ensure SSH HostbasedAuthentication is disabled
+
+- name: 5.2.9 - Check if /etc/ssh/sshd_config exists
+  stat:
+    path: /etc/ssh/sshd_config
+  register: sshd_config_5_2_9
+  tags:
+    - level-1
+    - section-5
+    - "5.2.9"
+    - scored
+
+- name: 5.2.9 - Ensure SSH HostbasedAuthentication is disabled
+  lineinfile:
+    regexp: "^HostbasedAuthentication\\s+"
+    line: "HostbasedAuthentication no"
+    dest: "/etc/ssh/sshd_config"
+  when: sshd_config_5_2_9.stat.exists
+  notify:
+    - Restart sshd
+  tags:
+    - level-1
+    - section-5
+    - "5.2.9"
+    - scored
