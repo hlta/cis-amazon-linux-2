@@ -10,7 +10,7 @@
     module_path: pam_unix.so
     new_control: sufficient
     module_arguments: 'remember=5'
-    state: args_absent
+    state: updated
   tags:
     - level-1
     - section-5
@@ -25,7 +25,7 @@
     module_path: pam_unix.so
     new_control: sufficient
     module_arguments: 'remember=5'
-    state: args_absent
+    state: updated
   tags:
     - level-1
     - section-5
