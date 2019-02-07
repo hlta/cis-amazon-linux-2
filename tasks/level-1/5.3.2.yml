@@ -51,7 +51,7 @@
     control: sufficient
     module_path: pam_unix.so
     new_type: auth
-    new_control: "[default=die]"
+    new_control: '[default=die]'
     new_module_path: pam_faillock.so
     module_arguments: 'authfail
         audit
@@ -70,7 +70,7 @@
     type: auth
     control: sufficient
     module_path: pam_unix.so
-    new_control: "[success=1 default=bad]"
+    new_control: '[success=1 default=bad]'
     module_arguments: ''
     state: updated
   tags:
