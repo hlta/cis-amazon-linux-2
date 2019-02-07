@@ -18,6 +18,7 @@
         deny=5
         unlock_time=900'
     state: before
+  ignoreerrors: yes
   tags:
     - level-1
     - section-5
@@ -38,6 +39,7 @@
         deny=5
         unlock_time=900'
     state: after
+  ignoreerrors: yes
   tags:
     - level-1
     - section-5
@@ -58,6 +60,7 @@
         deny=5
         unlock_time=900'
     state: after
+  ignoreerrors: yes
   tags:
     - level-1
     - section-5
@@ -73,6 +76,7 @@
     new_control: [success=1 default=bad]
     module_arguments: ''
     state: updated
+  ignoreerrors: yes
   tags:
     - level-1
     - section-5
