@@ -94,4 +94,13 @@ cis_pass_inactive_lock: 30
 
 # 5.2.19
 cis_sshd_banner: "/etc/issue.net"
+
+# 5.4
+cis_umask_default: "027"
+cis_umask_shell_files:
+- /etc/bashrc
+- /etc/profile
+cis_tmout_default: 600
+
+
 full_upgrade: True
