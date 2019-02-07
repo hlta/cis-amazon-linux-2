@@ -101,6 +101,10 @@ cis_umask_shell_files:
 - /etc/bashrc
 - /etc/profile
 cis_tmout_default: 600
-
+cis_skip_lock_users:
+  - root
+  - halt
+  - shutdown
+  - sync
 
 full_upgrade: True
