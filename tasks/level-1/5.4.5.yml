@@ -6,7 +6,7 @@
 - name: 5.4.5 Ensure default user shell timeout is 900 seconds or less
   lineinfile:
     regexp: "^TMOUT\\s+"
-    line: "TMOUT {{ cis_tmout_default }}"
+    line: "TMOUT={{ cis_tmout_default }}"
     dest: "{{ item }}"
   with_items: "{{ cis_umask_shell_files }}"
   tags:
