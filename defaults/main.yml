@@ -106,5 +106,7 @@ cis_skip_lock_users:
   - halt
   - shutdown
   - sync
+# 5.6
+cis_wheel_group_members: "root"
 
 full_upgrade: True
