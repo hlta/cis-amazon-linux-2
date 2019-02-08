@@ -1,5 +1,7 @@
 # Standards: 0.11
 ---
 
+- import_tasks: "level-2/1.1.13.yml"
+  when: "'1.1.13' not in cis_level_2_exclusions"
 - import_tasks: "level-2/4.1.3.yml"
   when: "'4.1.3' not in cis_level_2_exclusions"

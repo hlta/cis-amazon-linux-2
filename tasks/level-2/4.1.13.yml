@@ -10,7 +10,7 @@
   ignore_errors: true
   tags:
     - "4.1.13"
-    - level-1
+    - level-23
     - section-4
     - scored
 
@@ -28,6 +28,6 @@
     ("'-a always,exit -F arch=b32 -S mount -F auid>=500 -F auid!=4294967295 -k mounts' not in mounts.stdout")
   tags:
     - "4.1.13"
-    - level-1
+    - level-2
     - section-4
     - scored

@@ -109,4 +109,9 @@ cis_skip_lock_users:
 # 5.6
 cis_wheel_group_members: "root"
 
+# 1.1.13
+cis_partition_dev_home: "/dev/xvda4"
+cis_partition_mnt_home: "/home"
+cis_partition_fs_home: "ext4"
+
 full_upgrade: True
