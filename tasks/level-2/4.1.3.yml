@@ -16,7 +16,7 @@
   lineinfile:
     dest: "{{ cis_grub_default_filename }}"
     regexp: "^GRUB_CMDLINE_LINUX="
-    line: 'GRUB_CMDLINE_LINUX="audit=1'
+    line: 'GRUB_CMDLINE_LINUX="audit=1"'
   when: grub_default_4_1_3.stat.exists is defined and grub_default_4_1_3.stat.exists
   tags:
     - level-1
