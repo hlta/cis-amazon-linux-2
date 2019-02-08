@@ -1,39 +1,37 @@
 # Standards: 0.11
 ---
 
-# 6.2.11 Ensure no users have .forward files
+# 6.1.11 Ensure no unowned files or directories exist
 
-- name: 6.2.11 - Audit users' forward files
-  script: "{{ role_path }}/files/audit_6.2.11.sh"
-  check_mode: no
-  changed_when: False
-  register: audit_6_2_11
+- name: 6.1.11 - Audit if any unowned files or directories exist
+  shell: df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser
+  register: audit_6_1_11
   tags:
     - level-1
     - section-6
-    - "6.2.11"
+    - "6.1.11"
     - scored
 
-- name: 6.2.11 - Ensure no users have .forward files
+- name: 6.1.11 - Ensure no unowned files or directories exist
   fail:
-    msg: "{{ audit_6_2_11.stdout }}"
+    msg: "{{ audit_6_1_11.stdout_lines }}"
   when:
-    - audit_6_2_11.stdout_lines is defined and audit_6_2_11.stdout_lines|length > 0
+    - audit_6_1_11.stdout_lines is defined and audit_6_1_11.stdout_lines|length > 0
     - fail_on_manual_remediation_actions
   tags:
     - level-1
     - section-6
-    - "6.2.11"
+    - "6.1.11"
     - scored
 
-- name: 6.2.11 - Ensure no users have .forward files
+- name: 6.1.11 - Ensure no unowned files or directories exist
   debug:
-    msg: "*** ACTION REQUIRED *** {{ audit_6_2_11.stdout }}"
+    msg: "*** ACTION REQUIRED *** {{ audit_6_1_11.stdout }}"
   when:
-    - audit_6_2_11.stdout_lines is defined and audit_6_2_11.stdout_lines|length > 0
+    - audit_6_1_11.stdout_lines is defined and audit_6_1_11.stdout_lines|length > 0
     - not fail_on_manual_remediation_actions
   tags:
     - level-1
     - section-6
-    - "6.2.11"
+    - "6.1.11"
     - scored
