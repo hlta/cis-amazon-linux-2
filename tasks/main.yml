@@ -4,9 +4,9 @@
 - import_tasks: preflight.yml
   when: cis_apply_level_1_profile or cis_apply_level_2_profile
 
-#- import_tasks: "level-1.yml"
-#  become: yes
-#  when: cis_apply_level_1_profile
+- import_tasks: "level-1.yml"
+  become: yes
+  when: cis_apply_level_1_profile
 
 - include: "level-2.yml"
   become: yes
