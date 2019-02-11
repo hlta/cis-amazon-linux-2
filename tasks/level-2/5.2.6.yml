@@ -3,11 +3,14 @@
 
 # 5.2.6 - Ensure SSH X11 forwarding is disabled
 
-- include: stat_sshd_config.yml
+- name: 5.2.6 - Check if /etc/ssh/sshd_config exists
+  stat:
+    path: /etc/ssh/sshd_config
+  register: sshd_config_5_2_6
   tags:
-    - level-2
+    - level-1
     - section-5
-    - "5.2.6"
+    - "5.2.7"
     - scored
 
 - name: 5.2.4 - Ensure SSH X11 forwarding is disabled
@@ -15,7 +18,7 @@
     regexp: "^X11Forwarding\\s+"
     line: "X11Forwarding no"
     dest: "/etc/ssh/sshd_config"
-  when: sshd_config.stat.exists
+  when: sshd_config_5_2_6.stat.exists
   notify:
     - Restart sshd
   tags:
