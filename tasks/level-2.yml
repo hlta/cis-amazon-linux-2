@@ -54,5 +54,3 @@
   when: "'5.2.6' not in cis_level_2_exclusions"
 - import_tasks: "level-2/5.4.5.yml"
   when: "'5.4.5' not in cis_level_2_exclusions"
-- import_tasks: "level-2/6.1.1.yml"
-  when: "'6.1.1' not in cis_level_2_exclusions"
