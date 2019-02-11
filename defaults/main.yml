@@ -127,6 +127,6 @@ cis_partition_fs_val_log: "ext4"
 # 1.1.12
 cis_partition_dev_val_log_audit: "/dev/xvda3"
 cis_partition_mnt_val_log_audit: "/var/log/audit"
-cis_partition_fs_val_log_audit: "ext4
+cis_partition_fs_val_log_audit: "ext4"
 
 full_upgrade: True
