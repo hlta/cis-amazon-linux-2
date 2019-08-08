@@ -4,6 +4,7 @@
 cis_target_os_distribution: "Amazon"
 cis_target_os_versions: 
   - "(Karoo)"
+  - "2"
 
 cis_modprobe_conf_filename: "/etc/modprobe.d/CIS.conf"
 cis_rescue_service_filename: "/usr/lib/systemd/system/rescue.service"
